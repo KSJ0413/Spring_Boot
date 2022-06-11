@@ -19,7 +19,7 @@
       method="post"
       >
  
- <input type="hidden" name="bbsno" value="<%=request.getParameter("bbsno") %>">
+ <input type="hidden" name="bbsno" value="<%=request.getAttribute("bbsno") %>">
   <div class="form-group">
     <label class="control-label col-sm-2" for="passwd">비밀번호</label>
     <div class="col-sm-6">

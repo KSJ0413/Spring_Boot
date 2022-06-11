@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,15 +18,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.study.model.BbsDAO;
 import com.study.model.BbsDTO;
+import com.study.model.BbsService;
 import com.study.utility.Utility;
 
 @Controller
 public class BbsController {
   
   @Autowired
-  private BbsDAO dao;
+  @Qualifier("com.study.model.BbsServiceImpl")
+  private BbsService dao;
   
   @PostMapping("/bbs/reply")
   public String reply(BbsDTO dto) {
@@ -33,7 +35,7 @@ public class BbsController {
     map.put("grpno",dto.getGrpno());
     map.put("ansnum",dto.getAnsnum());
     dao.upAnsnum(map);
-    if(dao.createReply(dto)) {
+    if(dao.createReply(dto)==1) {
       return "redirect:list";
     }else {
       return "error";
@@ -49,15 +51,17 @@ public class BbsController {
   }
   
   @PostMapping("/bbs/delete")
-  public String delete(@RequestParam Map<String,String> map) {
+  public String delete(int bbsno, String passwd) {
+    Map map = new HashMap();
+    map.put("bbsno", bbsno);
+    map.put("passwd", passwd);
     
-    int bbsno = Integer.parseInt(map.get("bbsno"));
-    boolean pflag = dao.passCheck(map);
-    boolean flag = false;
-    if(pflag)flag = dao.delete(bbsno); 
+    int pflag = dao.passCheck(map);
+    int flag = 0;
+    if(pflag==1)flag = dao.delete(bbsno); 
     
-    if(!pflag)return "passwdError"; //비번오류일때 비번오류페이지 보여준다.
-    else if(!flag) return "error";
+    if(pflag!=1)return "passwdError"; //비번오류일때 비번오류페이지 보여준다.
+    else if(flag!=1) return "error";
     else return "redirect:list";
   }
   
@@ -72,13 +76,13 @@ public class BbsController {
     Map map = new HashMap();
     map.put("bbsno",dto.getBbsno());
     map.put("passwd",dto.getPasswd());
-    boolean pflag = dao.passCheck(map);
-    boolean flag = false;
+    int pflag = dao.passCheck(map);
+    int flag = 0;
     
-    if(pflag) flag = dao.update(dto);
+    if(pflag==1) flag = dao.update(dto);
     
-    if(!pflag) return "passwdError";
-    else if(!flag) return "error";
+    if(pflag!=1) return "passwdError";
+    else if(flag!=1) return "error";
     else {
       return "redirect:list";
     }
@@ -143,8 +147,8 @@ public class BbsController {
   
   @PostMapping("/bbs/create")
   public String create(BbsDTO dto) {
-    boolean flag  = dao.create(dto);
-    if(!flag) return "error";
+    int cnt  = dao.create(dto);
+    if(cnt!=1) return "error";
     return "redirect:list";
   }
   @GetMapping("/bbs/create")
@@ -162,3 +166,4 @@ public class BbsController {
   
   
 }
+

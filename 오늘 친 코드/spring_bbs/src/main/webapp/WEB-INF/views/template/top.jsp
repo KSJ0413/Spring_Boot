@@ -44,15 +44,15 @@
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#"> 메모 <span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li><a href="<%=root%>/memo/createForm.jsp">생성</a></li>
-        <li><a href="<%=root%>/memo/list.jsp">목록</a></li>
+        <li><a href="<%=root%>/memo/create">생성</a></li>
+        <li><a href="<%=root%>/memo/list">목록</a></li>
          </ul>
          </li>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#"> 주소록 <span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li><a href="<%=root%>/addr/createForm.jsp">생성</a></li>
-        <li><a href="<%=root%>/addr/list.jsp">목록</a></li>                      
+        <li><a href="<%=root%>/addr/create">생성</a></li>
+        <li><a href="<%=root%>/addr/list">목록</a></li>                      
       </ul>
     </li>
     <li><a href="#">Menu 2</a></li>
