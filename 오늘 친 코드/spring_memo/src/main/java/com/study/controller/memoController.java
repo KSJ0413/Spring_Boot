@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,15 +18,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.study.model.memoDAO;
 import com.study.model.memoDTO;
+import com.study.model.memoService;
 import com.study.utility.Utility;
 
 @Controller
 public class memoController {
   
   @Autowired
-  private memoDAO dao;
+  @Qualifier("com.study.model.memoServiceImpl")
+  private memoService dao;
   
   @PostMapping("/memo/reply")
   public String reply(memoDTO dto) {
@@ -33,7 +35,7 @@ public class memoController {
     map.put("grpno",dto.getGrpno());
     map.put("ansnum",dto.getAnsnum());
     dao.upAnsnum(map);
-    if(dao.createReply(dto)) {
+    if(dao.createReply(dto)==1) {
       return "redirect:list";
     }else {
       return "error";
@@ -52,12 +54,12 @@ public class memoController {
   public String delete(@RequestParam Map<String,String> map ) {
     
     int memono = Integer.parseInt(map.get("memono"));
-    boolean pflag = dao.passCheck(map);
-    boolean flag = false;
-    if(pflag)flag = dao.delete(memono); 
+    int pflag = dao.passCheck(map);
+    int flag = 0;
+    if(pflag==1)flag = dao.delete(memono); 
     
-    if(!pflag)return "passwdError"; //비번오류일때 비번오류페이지 보여준다.
-    else if(!flag) return "error";
+    if(pflag!=1)return "passwdError"; //비번오류일때 비번오류페이지 보여준다.
+    else if(flag!=1) return "error";
     else return "redirect:list";
   }
   
@@ -70,13 +72,13 @@ public class memoController {
   @PostMapping("/memo/update")
   public String update(@RequestParam Map<String,String> map, memoDTO dto) {
     int memono = Integer.parseInt(map.get("memono"));
-    boolean pflag = dao.passCheck(map);
-    boolean flag = false;
+    int pflag = dao.passCheck(map);
+    int flag = 0;
     
-    if(pflag) flag = dao.update(dto);
+    if(pflag==1) flag = dao.update(dto);
     
-    if(!pflag) return "passwdError";
-    else if(!flag) return "error";
+    if(pflag!=1) return "passwdError";
+    else if(flag!=1) return "error";
     else {
       return "redirect:list";
     }
@@ -141,8 +143,8 @@ public class memoController {
   
   @PostMapping("/memo/create")
   public String create(memoDTO dto) {
-    boolean flag  = dao.create(dto);
-    if(!flag) return "error";
+    int flag  = dao.create(dto);
+    if(flag!=1) return "error";
     return "redirect:list";
   }
   @GetMapping("/memo/create")
