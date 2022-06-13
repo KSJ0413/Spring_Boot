@@ -14,7 +14,7 @@
       location.href = url;
     }
     function del(){//삭제 페이지 이동
-        let url = '/bbs/delete/<%=dto.getBbsno()%>';
+        let url = '/bbs/delete/<%=dto.getBbsno()%>/<%=dto.getFilename()%>';
         location.href = url;
       }
     function reply(){//답변 페이지 이동
@@ -42,14 +42,17 @@
  
 <div class="panel-heading">등록일</div>
 <div class="panel-body"><%=dto.getWdate() %></div>
+
+<div class="panel-heading">파일명</div>
+<div class="panel-body"><%=dto.getFilename() %></div>
 </div>
 
 <div>
-  <button onclick="lacation.href='create'">등록</button>
+  <button onclick="lacation.href='/bbs/create'">등록</button>
   <button onclick="update()">수정</button>
   <button onclick="del()">삭제</button>
   <button onclick="reply()">답변</button>
-  <button onclick="location.href='list'">목록</button>
+  <button onclick="location.href='/bbs/list'">목록</button>
 </div>
 <br>
 </div>

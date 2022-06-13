@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.study.bbs.UploadBbs;
 import com.study.model.BbsDTO;
 import com.study.model.BbsService;
 import com.study.utility.Utility;
@@ -51,28 +52,47 @@ public class BbsController {
   }
   
   @PostMapping("/bbs/delete")
-  public String delete(int bbsno, String passwd) {
+  public String delete(int bbsno, String passwd, String oldfile) {
     Map map = new HashMap();
     map.put("bbsno", bbsno);
     map.put("passwd", passwd);
     
+    String upDir = UploadBbs.getUploadDir();
+    
     int pflag = dao.passCheck(map);
     int flag = 0;
-    if(pflag==1)flag = dao.delete(bbsno); 
+    if(pflag==1) {
+      flag = dao.delete(bbsno);
+      if(oldfile !=null) Utility.deleteFile(upDir, oldfile);
+    }
+    
+    
+    
+    
     
     if(pflag!=1)return "passwdError"; //비번오류일때 비번오류페이지 보여준다.
     else if(flag!=1) return "error";
     else return "redirect:list";
   }
   
-  @GetMapping("/bbs/delete/{bbsno}")
-  public String delete(@PathVariable int bbsno, Model model) {
+  @GetMapping("/bbs/delete/{bbsno}/{oldfile}")
+  public String delete(@PathVariable int bbsno, Model model,@PathVariable String oldfile) {
     model.addAttribute("bbsno", bbsno);
+    model.addAttribute("oldfile", oldfile);
     return "/delete";
   }
   
   @PostMapping("/bbs/update")
-  public String update(BbsDTO dto) {
+  public String update(BbsDTO dto, @PathVariable String oldfile) {
+    String upDir = UploadBbs.getUploadDir();
+    if(dto.getFilenameMF().getSize()>0) {
+      if(oldfile !=null) Utility.deleteFile(upDir, oldfile);
+      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
+        dto.setFilesize((int)dto.getFilenameMF().getSize());
+      
+    }
+    
+    
     Map map = new HashMap();
     map.put("bbsno",dto.getBbsno());
     map.put("passwd",dto.getPasswd());
@@ -147,6 +167,16 @@ public class BbsController {
   
   @PostMapping("/bbs/create")
   public String create(BbsDTO dto) {
+    
+    String upDir = UploadBbs.getUploadDir();
+    
+    if(dto.getFilenameMF().getSize()>0) {//브라우저에서 파일을 보냈다.
+      dto.setFilename(Utility.saveFileSpring(dto.getFilenameMF(), upDir));
+      dto.setFilesize((int)dto.getFilenameMF().getSize());
+    }else {
+      dto.setFilename("");
+    }
+    
     int cnt  = dao.create(dto);
     if(cnt!=1) return "error";
     return "redirect:list";
