@@ -1,8 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
-<%@ page import="com.study.model.*" %>
-<%  
-	BbsDTO dto = (BbsDTO)request.getAttribute("dto"); 	
-%> 
 <!DOCTYPE html> 
 <html> 
 <head>
@@ -15,27 +11,27 @@
 <form class="form-horizontal" 
       action="/bbs/update"
       method="post"
-      enctype=""multipart/form-data""
+      enctype="multipart/form-data"
       >
-  <input type="hidden" name='bbsno' value="<%=dto.getBbsno() %>">
-   <input type="hidden" name='oldfile' value="<%=dto.getFilename() %>">
+  <input type="hidden" name='bbsno' value="${dto.bbsno}">
+   <input type="hidden" name='oldfile' value="${dto.filename}">
   <div class="form-group">
     <label class="control-label col-sm-2" for="wname">작성자</label>
     <div class="col-sm-6">
-      <input type="text" name="wname" id="wname" class="form-control" value="<%=dto.getWname()%>">
+      <input type="text" name="wname" id="wname" class="form-control" value="${dto.wname}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="title">제목</label>
     <div class="col-sm-6">
-      <input type="text" name="title" id="title" class="form-control" value="<%=dto.getTitle()%>">
+      <input type="text" name="title" id="title" class="form-control" value="${dto.title}">
     </div>
   </div>
   
   <div class="form-group">
     <label class="control-label col-sm-2" for="content">내용</label>
     <div class="col-sm-6">
-    <textarea rows="5" cols="5" id="content" name="content" class="form-control"><%=dto.getContent() %></textarea>
+    <textarea rows="5" cols="5" id="content" name="content" class="form-control">${dto.content}</textarea>
     </div>
   </div>
   

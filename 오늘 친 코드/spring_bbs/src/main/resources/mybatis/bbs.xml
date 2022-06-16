@@ -14,11 +14,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="createReply" parameterType="com.study.model.BbsDTO">
 		insert into bbs(wname, title, content, passwd, wdate, grpno, indent,
-		ansnum)
+		ansnum, refnum,filename,
+		filesize)
 		values(#{wname},#{title},#{content},#{passwd},sysdate(),
-		#{grpno},#{indent}+1,#{ansnum}+1 )
+		#{grpno},#{indent}+1,#{ansnum}+1,#{bbsno},#{filename},#{filesize} )
 	</insert>
 
+<select id="checkRefnum"  parameterType="int" resultType="int">
+select count(refnum) 
+from bbs
+where refnum = #{bbsno}
+
+</select>
 
 	<select id="readReoly" parameterType="int"
 		resultType="com.study.model.BbsDTO">
@@ -72,7 +79,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="read" parameterType="int"
 		resultType="com.study.model.BbsDTO">
-		SELECT bbsno, wname, title, content, viewcnt, wdate,filename
+		SELECT bbsno, wname, title, content, viewcnt, wdate, filename
 		FROM bbs
 		WHERE bbsno = #{bbsno}
 	</select>

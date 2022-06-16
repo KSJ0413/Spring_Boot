@@ -57,4 +57,9 @@ public class BbsServiceImpl implements BbsService {
   public void upAnsnum(Map map) {
   mapper.upAnsnum(map);
   }
+  @Override
+  public int checkRefnum(int bbsno) {
+    // TODO Auto-generated method stub
+    return mapper.checkRefnum(bbsno);
+  }
 }

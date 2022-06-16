@@ -9,7 +9,7 @@ public class UploadBbs {
     public static synchronized String getUploadDir() {
         String path = "";
         if (File.separator.equals("\\")) {
-            path = "C:/aistudy/deploy/bbs/storage";
+            path = "C:/aistudy/deploy/bbs/storage/";
             System.out.println("Windows 10: " + path);
             
         } else {
