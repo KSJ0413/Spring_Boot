@@ -11,9 +11,10 @@ public interface BbsService {
   int create(BbsDTO dto);
   int passCheck(Map map);
   int update(BbsDTO dto);
-  int delete(int bbsno);
+  void delete(int bbsno);
   BbsDTO readReply(int bbsno);
   int createReply(BbsDTO dto);
   void upAnsnum(Map map);
   int checkRefnum(int bbsno);
+  
 }

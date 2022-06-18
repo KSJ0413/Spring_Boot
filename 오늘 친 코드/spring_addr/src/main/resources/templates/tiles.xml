@@ -35,11 +35,7 @@
       value="/WEB-INF/views/updateForm.jsp" />
   </definition>	
   
-  <definition name="/delete" extends="main">
-    <put-attribute name="title" value="주소 삭제"></put-attribute>
-    <put-attribute name="body"
-      value="/WEB-INF/views/deleteForm.jsp" />
-  </definition>	
+
 
   <definition name="/home" extends="main">
     <put-attribute name="title" value="기본페이지"></put-attribute>

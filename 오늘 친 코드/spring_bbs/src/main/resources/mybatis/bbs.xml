@@ -34,11 +34,10 @@ where refnum = #{bbsno}
 		WHERE bbsno = #{bbsno}
 	</select>
 
-	<delete id="delete" parameterType="int">
-		delete from bbs
-		where bbsno = #{bbsno}
-
-	</delete>
+<delete id="delete" parameterType="int">
+  DELETE FROM bbs
+  WHERE bbsno1 = #{bbsno}
+</delete>
 
 	<update id="update" parameterType="com.study.model.BbsDTO">
 	update bbs

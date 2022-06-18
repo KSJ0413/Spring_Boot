@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Service("com.study.model.BbsServiceImpl")
 public class BbsServiceImpl implements BbsService {
+  
+  @Autowired
+  private ReplyMapper rmapper;
+  
  @Autowired
  private BbsMapper mapper;
  
@@ -39,9 +43,11 @@ public class BbsServiceImpl implements BbsService {
     return mapper.update(dto);
   }
   @Override
-  public int delete(int bbsno) {
+  public void delete(int bbsno) {
     // TODO Auto-generated method stub
-    return mapper.delete(bbsno);
+    
+    rmapper.bdelete(bbsno);
+     mapper.delete(bbsno);
   }
   @Override
   public BbsDTO readReply(int bbsno) {

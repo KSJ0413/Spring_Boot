@@ -39,6 +39,8 @@ public class BbsController {
   private BbsService dao;
   
   
+  
+  
   @Autowired
   @Qualifier("com.study.model.ReplyServiceImpl")
   private ReplyService rservice;
@@ -80,14 +82,19 @@ public class BbsController {
     String upDir = UploadBbs.getUploadDir();
     
     int pflag = dao.passCheck(map);
-    int flag = 0;
+    String url = "passwError";
     if(pflag==1) {
-      flag = dao.delete(bbsno);
-      if(oldfile !=null && !oldfile.equals("")) Utility.deleteFile(upDir, oldfile);
+      try {
+        dao.delete(bbsno);
+        url ="redirect:list";
+        if(oldfile !=null && !oldfile.equals("")) Utility.deleteFile(upDir, oldfile);
+    }catch(Exception e) {
+      e.printStackTrace();
+      url ="error";
     }
-    if(pflag!=1)return "passwdError"; //비번오류일때 비번오류페이지 보여준다.
-    else if(flag!=1) return "error";
-    else return "redirect:list";
+    }
+   
+     return url;
   }
   
   @GetMapping("/bbs/delete/{bbsno}")
@@ -262,9 +269,9 @@ public class BbsController {
           if (pflag) {
                   if (dto.getFilename() != null)
                           Utility.deleteFile(upDir, dto.getFilename());
-                  int cnt3 = dao.delete(dto.getBbsno());
-                  if (cnt3 > 0)
-                          flag = true;
+                 // int cnt3 = dao.delete(dto.getBbsno());
+                 // if (cnt3 > 0)
+                     //     flag = true;
           }
 
           Map<String, String> map2 = new HashMap<String, String>();

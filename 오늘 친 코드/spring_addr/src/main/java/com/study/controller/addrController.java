@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,39 +20,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.study.model.addrDAO;
 import com.study.model.addrDTO;
+import com.study.model.addrService;
 import com.study.utility.Utility;
 
 @Controller
 public class addrController {
   
   @Autowired
-  private addrDAO dao;
+  @Qualifier("com.study.model.addrServiceImpl")
+  private addrService dao;
   
-  @PostMapping("/addr/delete")
-  public String delete(int addressnum) {
-    boolean flag = dao.delete(addressnum);
-   
-    
-    if(flag) {
-      return "redirect:list";
-    }else {
-      return "error";
-    }
-  }
+  /*
+   * @PostMapping("/addr/delete") public String delete(int addressnum) { int flag
+   * = dao.delete(addressnum);
+   * 
+   * 
+   * if(flag ==1) { return "redirect:list"; }else { return "error"; } }
+   */
   
   @GetMapping("/addr/delete/{addressnum}")
   public String delete(@PathVariable int addressnum, Model model ) {
     model.addAttribute("addressnum", addressnum);
-    return "/delete";
+    
+    int flag = dao.delete(addressnum);
+    if(flag ==1) {
+      return "redirect:/addr/list";
+    }else {
+      return "error";
+    }
   }
   
   @PostMapping("/addr/update")
   public String update(addrDTO dto) {
     Map map = new HashMap();
     map.put("addressnum",dto.getAddressnum());
-    boolean flag = dao.update(dto);
+    int flag = dao.update(dto);
     
-    if(flag) {
+    if(flag == 1) {
       return "redirect:list";
     }
     
@@ -115,8 +120,8 @@ public class addrController {
   
   @PostMapping("/addr/create")
   public String create(addrDTO dto) {
-    boolean flag  = dao.create(dto);
-    if(!flag) return "error";
+    int flag  = dao.create(dto);
+    if(flag!=1) return "error";
     return "redirect:list";
   }
   @GetMapping("/addr/create")
