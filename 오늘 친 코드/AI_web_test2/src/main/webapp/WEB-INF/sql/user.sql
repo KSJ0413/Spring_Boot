@@ -16,3 +16,16 @@ CREATE TABLE user(
     INSERT INTO user(id, pw, name)  
     VALUES('asd', 'asd', 'KKK'); 
  select * from user; 
+ 
+ -- id&pw 체크후 맞으면 1 틀리면 0 
+select count(*) 
+ from user
+where id = asd
+ and pw = asd;
+
+
+
+-- loginCheck 후 name 값 가져오기
+ select name
+ from user
+ where id ="admin" AND pw = "1234";

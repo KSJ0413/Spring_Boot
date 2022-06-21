@@ -1,19 +1,21 @@
 package com.example.sample;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.Member;
+
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Controller
@@ -23,26 +25,37 @@ public class UserController {
   @Qualifier("com.example.sample.UserServiceImpl")
   private UserService service;
   private static final Logger log = LoggerFactory.getLogger(UserController.class);
-
-
-
-  @RequestMapping(value="/")
-  public int loginCheck(@RequestParam("id") String id, @RequestParam("pw") String pw ) {
-    log.info("userIdCheck 진입");
-    log.info("전달받은 id:"+id);
-    log.info("전달받은 pw:"+pw);
-    int cnt = service.loginCheck(id,pw);
-   
-    log.info("확인 결과:"+cnt);
-    
-    
-    
-    return cnt;
-  }
-}
   
 
+
+
+  @GetMapping("/")
+  public String loginCheck() {
+    
+
  
+    return "test1";
+  }
+  @ResponseBody
+  @GetMapping("/loginCheckk") 
+  public String loginCheckk( 
+      @RequestParam Map<String,String> map
+  ) {
+    
+    System.out.println("Map:" + map.toString());
+    int cnt = service.loginCheckk(map);
+    if(cnt > 0) {
+      
+      ObjectMapper om = new ObjectMapper();
+      String nameView = service.nameView(map);
+      System.out.println("nameView:" + nameView);
+      return nameView;
+    }
+    
+    return "fail";
+  }
+}
+
   
   
 

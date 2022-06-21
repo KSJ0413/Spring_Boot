@@ -10,10 +10,9 @@ public interface UserMapper {
 
 
 
-  int loginCheck(String id, String pw);
+  int loginCheckk(Map<String, String> map);
 
-
-
+  String nameView(Map<String, String> map);
 
  
 

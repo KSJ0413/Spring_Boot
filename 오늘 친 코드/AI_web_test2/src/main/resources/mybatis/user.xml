@@ -6,12 +6,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.example.sample.UserMapper">
 
- <select id="loginCheck" parameterType="string" resultType="int">
+ <select id="loginCheckk" parameterType="Map" resultType="int">
                 select
-                count(*) from member
+                count(*) from user
                 where id = #{id}
                 and pw = #{pw}
-        </select>
+</select>
+
+<select id="nameView"  parameterType="Map"  resultType="String">
+	select name
+	  from user
+	 where id = #{id} AND pw = #{pw}
+</select>
         
      
 </mapper>

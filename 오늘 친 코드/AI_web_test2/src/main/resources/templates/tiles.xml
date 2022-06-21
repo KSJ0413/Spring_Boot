@@ -5,7 +5,7 @@
  
 <tiles-definitions>
     <definition name="test1" extends="main"> 
-            <put-attribute name="title" value="사진수정" ></put-attribute> 
+            <put-attribute name="title" value="홈" ></put-attribute> 
             <put-attribute name="body" value="/WEB-INF/views/test1.jsp" /> 
     </definition> 
 </tiles-definitions>

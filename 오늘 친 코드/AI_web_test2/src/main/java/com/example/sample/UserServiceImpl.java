@@ -16,19 +16,43 @@ public class UserServiceImpl implements UserService {
   @Autowired
   private UserMapper mapper;
 
-
-
-
+ 
+  
+//
+//  @Override
+//  public int loginCheckk(String id, String pw) {
+//    // TODO Auto-generated method stub
+//    return mapper.loginCheckk(id,pw);
+//  }
+//
+//
+//
+//
+//  @Override
+//  public String nameView(String id, String pw) {
+//    // TODO Auto-generated method stub
+//    return mapper.nameView(id,pw);
+//  }
+//
 
 
 
   @Override
-  public int loginCheck(String id, String pw) {
+  public int loginCheckk(Map<String, String> map) {
     // TODO Auto-generated method stub
-    return mapper.loginCheck(id, pw);
+    return mapper.loginCheckk(map);
   }
 
 
+
+  @Override
+  public String nameView(Map<String, String> map) {
+    // TODO Auto-generated method stub
+    return mapper.nameView(map);
+  }
+
+ 
+  
 
  
   }

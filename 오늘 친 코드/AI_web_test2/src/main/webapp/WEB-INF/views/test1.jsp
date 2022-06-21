@@ -4,53 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <script type="text/javascript">
- 
- 
-function testAjax(){
-	var id=$("#id").val();
-	var pw=$("#pw").val();
-	
-	$.ajax({
-		 
-        type : "POST",
 
-        url : "/login",
-
-        data : "id=" + id + "&pw=" + pw,
-
-        dataType : "text",
-
-        success:function(cnt){ //컨트롤러에서 넘어온 cnt값을 받는다 
-            if(cnt != 1){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
-                $('.id_ok').css("display","inline-block"); 
-                $('.id_already').css("display", "none");
-            } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
-                $('.id_already').css("display","inline-block");
-                $('.id_ok').css("display", "none");
-            }
-        },
-        error:function(){
-            alert("에러입니다");
-        }
-    });
-    };
-	
-	
-	
-	
-	
-	
-/* 	var ajax = new XMLHttpRequest();
-	 ajax.onreadystatechange = function () {
-		 if(this.readyState == 4 && this.status ==200){
-			 console.log(ajax.responseText)
-		 }
-	 };
-	 ajax.open("GET","/",true);
-	 ajax.send(); */
-}
-</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
     <meta charset="UTF-8">
@@ -85,8 +39,8 @@ function testAjax(){
                 <a href="#">NOTICE</a> |
 <!--                 <a href="#">LOGIN</a> | -->
                 <a href="#">JOIN</a> | 
-              <!--  1. 버튼을 누르면 aJax 요청을 하기 위해서 testAjax라는 함수를 호출한다. -->
-                ID <input class="login" id="id"> PW <input type="password" class="login" id="pw"> <button id="login_btn" onclick="testAjax()" >LOGIN </button>
+                ID <input class="login" id="id" type="text" name="id"> PW <input type="password" class="login" id="pw" name="pw"> 
+				 <button id="login_btn" type="button">LOGIN</button> 
             	<input type="hidden" id="div1">
             </div>
  
