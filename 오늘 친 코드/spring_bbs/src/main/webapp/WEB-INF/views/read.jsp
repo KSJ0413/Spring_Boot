@@ -16,7 +16,7 @@
   url +="&word=${param.word}"
      location.href = url;
     }
-    function update(){//수정페이지 이동
+    function update1(){//수정페이지 이동
       let url = '/bbs/update/${dto.bbsno}';
       location.href = url;
     }
@@ -52,7 +52,7 @@
 <div class="panel-body">${dto.title}</div>
  
 <div class="panel-heading">내용</div>
-<div class="panel-body" style="height: 200px">${dto.content}</div>
+<div class="panel-body" >${dto.content}</div>
  
 <div class="panel-heading">조회수</div>
 <div class="panel-body">${dto.viewcnt}</div>
@@ -66,7 +66,7 @@
 
 <div>
   <button onclick="lacation.href='/bbs/create'">등록</button>
-  <button onclick="update()">수정</button>
+  <button onclick="update1()">수정</button>
   <button onclick="del()">삭제</button>
   <button onclick="reply()">답변</button>
   <button onclick="list()">목록</button>

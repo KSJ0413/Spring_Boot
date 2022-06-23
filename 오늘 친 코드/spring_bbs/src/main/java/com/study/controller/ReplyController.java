@@ -53,7 +53,7 @@ public class ReplyController {
     int recordPerPage = 3; // 한페이지당 출력할 레코드 갯수
  
     String paging = Utility.rpaging(total, nowPage, recordPerPage, col, word, url, nPage);
- 
+    System.out.println("paging:"+paging);
     return new ResponseEntity<>(paging, HttpStatus.OK);
  
   }
