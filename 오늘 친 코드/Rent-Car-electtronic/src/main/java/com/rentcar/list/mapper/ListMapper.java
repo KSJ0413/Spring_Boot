@@ -1,7 +1,7 @@
 package com.rentcar.list.mapper;
 
 
-import com.rentcar.list.model.ListDTO;
+import com.rentcar.list.controller.model.ListDTO;
 
 import java.util.List;
 import java.util.Map;
@@ -15,4 +15,6 @@ public interface ListMapper {
     int passwd(Map map);
     int update(ListDTO dto);
     int delete(int listno);
+
+    void recommend(int listno);
 }

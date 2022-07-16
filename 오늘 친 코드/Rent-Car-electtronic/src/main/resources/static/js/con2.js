@@ -1,13 +1,10 @@
+
+
 $(function(){
 	$("#addreviewBtn").click(function(){
 
 
 	 var content = document.querySelector("#content").value;
-
-
-      alert(content+":"+listno);
-
-
 
   	var data = {
 		"content" : content,
@@ -26,9 +23,7 @@ $(function(){
 	    success:function(data){
 		   console.log('성공입니다.');
 		   console.log(data);
-
-				console.log(data);
-				alert(data+"성공");
+            location.reload()
 
 	    },
 	    error:function(){
@@ -36,4 +31,28 @@ $(function(){
 	    }
 	});
 		});
-		});
+
+
+$("#delete").click(function(){
+
+var rnum = document.querySelector("#rnum").value;
+
+
+       	console.log(rnum);
+
+
+
+fetch(`/review/${rnum}`,{method: 'delete'})
+               .then(response => response.text())
+               .then(location.reload())
+               .catch(console.log);
+        		});
+
+
+
+
+
+
+
+
+});

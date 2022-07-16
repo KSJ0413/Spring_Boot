@@ -5,6 +5,7 @@ import com.rentcar.review.model.ReviewDTO;
 import java.util.List;
 import java.util.Map;
 
+
 public interface ReviewService {
   
   int create(ReviewDTO ReviewDTO);
@@ -18,6 +19,8 @@ public interface ReviewService {
   int delete(int rnum);
 
   int total(int listno);
+
+
 
   int bdelete(int listno);
 
