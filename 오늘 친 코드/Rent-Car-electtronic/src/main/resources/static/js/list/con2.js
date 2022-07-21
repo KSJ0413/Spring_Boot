@@ -15,7 +15,7 @@ $(function(){
  	$.ajax({
 
 	    type : "post",
-	    url : "/review/create", //+ "?id=" + id + "&pw=" + pw,
+	    url : "/review/create",
 	     data : JSON.stringify(data),
 	    //data: data,
 	    // dataType:"json",
@@ -47,6 +47,33 @@ fetch(`/review/${rnum}`,{method: 'delete'})
                .then(location.reload())
                .catch(console.log);
         		});
+
+
+
+
+//$("#deleteV").click(function(){
+//
+//
+//
+//
+// 	$.ajax({
+//
+// 	    type : "post",
+// 	    url : "/contents/list/delete",
+// 	     //data : JSON.stringify(data),
+// 	    data: listno,
+// 	    // dataType:"json",
+// 	    //contentType: "application/json",
+// 	    success:function(data){
+// 		   console.log('성공입니다.');
+//
+//
+// 	    }
+//
+//});
+//
+//});
+
 
 
 

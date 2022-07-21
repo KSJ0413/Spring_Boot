@@ -1,6 +1,6 @@
 package com.rentcar.list.controller;
 
-import com.rentcar.list.controller.model.ListDTO;
+import com.rentcar.list.model.ListDTO;
 import com.rentcar.list.service.ListServiceImpl;
 import com.rentcar.review.model.ReviewDTO;
 import com.rentcar.review.service.ReviewServiceImpl;
@@ -32,16 +32,16 @@ public class ListController {
 
     @GetMapping("/list/delete")
     public String delete(int listno, Model model) {
+
         model.addAttribute("listno", listno);
         return "/list/delete";
     }
 
     @PostMapping("/list/delete")
     public String delete(int listno) {
+        System.out.println(listno);
 
-        Map map = new HashMap();
-        map.put("listno", listno);
-        System.out.println(map);
+        rservice.bdelete(listno);
 
 
         service.delete(listno);
@@ -67,11 +67,12 @@ public class ListController {
         return "redirect:/contents/list";
     }
 
-    @PostMapping("/list/read")
+    @PostMapping("/list/{listno}")
     public String read(int listno) {
+//        System.out.println("listno="+listno);
         service.recommend(listno);
 
-        return "/list/read";
+        return "/list";
     }
 
 
@@ -114,10 +115,10 @@ public class ListController {
         map.put("listno", listno);
 
         model.addAllAttributes(map);
-        System.out.println("map="+map);
+//        System.out.println("map="+map);
         List<ReviewDTO> list = rservice.list(map);
 
-        System.out.println("list="+list);
+//        System.out.println("list="+list);
         model.addAttribute("list", list);
 
 
@@ -141,6 +142,7 @@ public class ListController {
     @PostMapping("/list/create")
     public String create(ListDTO dto) {
 
+        System.out.println("dto="+dto);
         if (service.create(dto) == 1) {
             return "redirect:/contents/list";
         } else {
@@ -163,7 +165,7 @@ public class ListController {
         if (request.getParameter("nowPage") != null) {
             nowPage = Integer.parseInt(request.getParameter("nowPage"));
         }
-        int recordPerPage = 3;// 한페이지당 보여줄 레코드갯수
+        int recordPerPage = 15;// 한페이지당 보여줄 레코드갯수
 
         // DB에서 가져올 순번-----------------
         int sno = ((nowPage - 1) * recordPerPage);
@@ -174,6 +176,9 @@ public class ListController {
         map.put("word", word);
         map.put("sno", sno);
         map.put("cnt", recordPerPage);
+
+
+//        System.out.println("map="+map);
 
         int total = service.total(map);
 
@@ -192,6 +197,15 @@ public class ListController {
         return "/list";
 
     }
+
+
+
+
+
+
+
+
+
 
 
 }

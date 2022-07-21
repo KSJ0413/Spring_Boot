@@ -1,4 +1,4 @@
-package com.rentcar.list.controller.model;
+package com.rentcar.list.model;
 
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,5 +13,5 @@ public class ListDTO {
         private int    cnt          ;
         private int recommend       ;
         private String rdate        ;
-
+        private MultipartFile multipartFile;
 }

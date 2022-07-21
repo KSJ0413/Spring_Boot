@@ -1,7 +1,7 @@
 package com.rentcar.list.service;
 
 
-import com.rentcar.list.controller.model.ListDTO;
+import com.rentcar.list.model.ListDTO;
 
 import java.util.List;
 import java.util.Map;
