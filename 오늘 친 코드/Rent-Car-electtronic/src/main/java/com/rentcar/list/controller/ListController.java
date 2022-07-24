@@ -1,5 +1,6 @@
 package com.rentcar.list.controller;
 
+import com.google.gson.JsonObject;
 import com.rentcar.list.model.ListDTO;
 import com.rentcar.list.service.ListServiceImpl;
 import com.rentcar.review.model.ReviewDTO;
@@ -26,8 +27,6 @@ public class ListController {
 
     @Autowired
     private ReviewServiceImpl rservice;
-
-
 
 
     @GetMapping("/list/delete")
@@ -107,8 +106,6 @@ public class ListController {
         int eno = recordPerPage;
 
 
-
-
         Map map = new HashMap();
         map.put("sno", sno);
         map.put("eno", eno);
@@ -125,10 +122,6 @@ public class ListController {
         request.setAttribute("list", list);
 
 
-
-
-
-
         return "/list/read";
     }
 
@@ -142,7 +135,7 @@ public class ListController {
     @PostMapping("/list/create")
     public String create(ListDTO dto) {
 
-        System.out.println("dto="+dto);
+        System.out.println("dto=" + dto);
         if (service.create(dto) == 1) {
             return "redirect:/contents/list";
         } else {
@@ -197,14 +190,6 @@ public class ListController {
         return "/list";
 
     }
-
-
-
-
-
-
-
-
 
 
 

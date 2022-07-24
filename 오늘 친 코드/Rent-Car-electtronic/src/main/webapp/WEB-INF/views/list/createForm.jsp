@@ -40,7 +40,7 @@
          <div class="form-group">
              <label class="control-label col-sm-2" for="wname">작성자</label>
              <div class="col-sm-6">
-             <input type="text" name="title" id="title" class="form-control" placeholder= '이름을 입력해 주세요.'>
+             <input type="text" name="wname" id="wname" class="form-control" placeholder= '이름을 입력해 주세요.'>
           <!--     <label class="control-label col-sm-2" for="wname">wname</label> -->
              </div>
            </div>

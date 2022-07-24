@@ -16,8 +16,8 @@
        url += "&word=${word}";
        url += "&nowPage=${nowPage}";
        location.href=url;
- 
-     }  
+
+     }
   </script>
   <style>
   .container {
