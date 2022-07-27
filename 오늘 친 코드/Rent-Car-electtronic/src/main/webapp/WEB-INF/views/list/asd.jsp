@@ -22,242 +22,46 @@
 </head>
 
 <body>
-  <div class="container">
-    <header>Registration</header>
-    <form>
 
-      <div class="form first">
-
-        <div class="details carinfo">
-          <span class="title">Car Info</span>
-
-          <div class="fields" id="carinfo">
-
-            <div class="input-field">
-              <label for="carnumber">Car Number</label>
-              <input type="text" name="carnumber" id="carnumber" placeholder="Enter Car Number" required>
-            </div>
-            <div class="input-field">
-              <label for="carname">Car Name</label>
-              <input type="text" name="carname"  id="carname" placeholder="Enter Car Name" required>
-            </div>
-            <div class="input-field">
-              <label for="carprice">Car Rent Price</label>
-              <input type="text" name="carprice" id="carprice" placeholder="Enter Car Rent Price" required>
-            </div>
-            <div class="input-field">
-              <label for="category">Car Category</label>
-              <input type="text" name="category" id="category" placeholder="Enter Car Category" required>
-            </div>
-            <div class="input-field">
-              <label for="caryearmodel">Car Year Model</label>
-              <input type="text" name="caryearmodel" id="caryearmodel" placeholder="Enter Car Year Model" required>
-            </div>
-            <div class="input-field">
-              <label for="carseate">Car Seate</label>
-              <input type="text" name="carseate" id="carseate" placeholder="Enter Car Seate" required>
-            </div>
-            <div class="input-field">
-              <label for="carpoint">Car Point</label>
-              <input type="text" name="carpoint" id="carpoint" placeholder="Enter Car Point" required>
-            </div>
-            <div class="input-field">
-              <label for="filenameMF">Car Image</label>
-              <input type="file" name="filenameMF" required id="filenameMF" >
-            </div>
-
-          </div>
-          <button class="nextBtn" id="btn11">
-            <span class="btnText">Next</span>
-            <i class="uil uil-navigator"></i>
-          </button>
-        </div>
-      </div>
-      <!--first end-->
-
-      <div class="form second">
-        <div class="carpotion">
-          <span class="title">Car Option</span>
-
-          <div class="fields" id="option">
-
-            <div class="input-field">
-              <label for="carnumber">Car Number</label>
-              <input type="text" name="carnumber" placeholder="Enter Car Number">
-            </div>
-
-            <div class="input-field">
-              <label>bluetooth</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>rear_sensor</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>rear_camera</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>black_box</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>heated_seat</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>heated_handle</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>ventilated_seat</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>navigation</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>non_smoking_vehicle</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>smart_key</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>sunroof</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>rear_warning_light</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-            <div class="input-field">
-              <label>Lane_Departure_Prevention</label>
-              <input type="checkbox" name="checkbox" class="cm-toggle" value="1" required>
-            </div>
-          </div>
-          <div class="buttons">
-            <div class="backBtn">
-              <i class="uil uil-navigator"></i>
-              <span class="btnText">Back</span>
-            </div>
-
-            <button class="sumbit" onclick="getInfo()">
-              <span class="btnText">Submit</span>
-              <i class="uil uil-navigator"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <!--second end-->
-    </form>
-  </div>
-<!--
-  <script>
-
-    // const check = document.getElementById("check").checked; 1 0
-    // if check == 1; -> 다음으로 넘어간다. add
-    // 아니면 안넘어간다.
-
-    const form = document.querySelector("form"),
-      nextBtn = form.querySelector(".nextBtn"),
-      backBtn = form.querySelector(".backBtn"),
-      allInput = form.querySelectorAll(".first input");
+   <span class="on" id="bluetooth">${dto.cdto.bluetooth}</span>
+   <span class="on" id="rear_sensor">${dto.cdto.rear_sensor}</span>
+   <span class="on" id="rear_camera">${dto.cdto.rear_camera}</span>
+   <span class="on" id="black_box">${dto.cdto.black_box}</span>
+   <span class="on" id="heated_seat">${dto.cdto.heated_seat}</span>
+   <span class="on" id="heated_handle">${dto.cdto.heated_handle}</span>
+   <span class="on" id="ventilated_seat">${dto.cdto.ventilated_seat} </span>
+   <span class="on" id="navigation">${dto.cdto.navigation}</span>
+   <span class="on" id="non_smoking_vehicle">${dto.cdto.non_smoking_vehicle} </span>
+   <span class="on" id="smart_key"> ${dto.cdto.smart_key}</span>
+   <span class="on" id="sunroof"> ${dto.cdto.sunroof} </span>
+   <span class="on" id="rear_warning_light">${dto.cdto.rear_warning_light} </span>
+   <span class="on" id="lane_departure_prevention"> ${dto.cdto.lane_departure_prevention}</span>
 
 
-    // nextBtn.addEventListener("click", () => {
-    //   allInput.forEach(input => {
-    //     if (input.value != "") {
-    //       form.classList.add('secActive');
-    //       // alert("값을 추가해주세요")
-    //       // break;
-    //     } else {
-    //       form.classList.remove('secActive');
-    //     }
-    //   })
-    // })
+<script>
+ var bluetooth = document.querySelector("#bluetooth").value;
+  var rear_sensor = document.querySelector("#rear_sensor").value;
+   var rear_camera = document.querySelector("#rear_camera").value;
+    var category = document.querySelector("#category").value;
+    var black_box = document.querySelector("#black_box").value;
+     var heated_seat = document.querySelector("#heated_seat").value;
+      var heated_handle = document.querySelector("#ventilated_seat").value;
+      var heated_handle = document.querySelector("#navigation").value;
+      var heated_handle = document.querySelector("#non_smoking_vehicle").value;
+      var heated_handle = document.querySelector("#smart_key").value;
+      var heated_handle = document.querySelector("#sunroof").value;
+      var heated_handle = document.querySelector("#rear_warning_light").value;
+      var heated_handle = document.querySelector("#lane_departure_prevention").value;
 
-    nextBtn.addEventListener("click", () => form.classList.add('secActive'));
-    backBtn.addEventListener("click", () => form.classList.remove('secActive'));
-  </script>
-  <script type="text/javascript">
+if(bluetooth =""){
+bluetooth.style.background="red";
+}else{
+bluetooth.style.background="blue";
+}
 
-    async function getInfo() {
-      const answer = GetWrited();
-      const selected = GetSelected();
-      // data 를 체크 해서 null값이 있다면
-      // 페이지 새로고침?!
-      answer.forEach(data => {
-        if (data.value == "") {
-          console.log("data")
-          location.reload();
-        }
-      })
 
-      data = {
-        answer: answer,
-        selected: selected
-      };
 
-      var url = "/carinfo/create";
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      }).then((res) => {
-        if (res.status == 200) {
-          alert("등록했습니다.");
-          window.close();
-        }
-      }).catch(() => {
-        alert("잠시후 다시 시도해 보세요.");
-        window.close();
-      });
-      location.reload();
-    }
-
-    function GetWrited() {
-      const answer = new Array();
-      var carinfo = document.getElementById("carinfo");
-      //Reference all the CheckBoxes in Table.
-      console.log(carinfo);
-      alert(carinfo);
-
-      var res = carinfo.getElementsByTagName("input");
-
-      // Loop and push the checked CheckBox value in Array.
-      for (var i = 0; i < res.length; i++) {
-        answer.push(res[i].value);
-      }
-      return answer;
-    }
-
-    function GetSelected() {
-      var selected = new Array();
-      //Reference the Table.
-      var tblFruits = document.getElementById("option");
-
-      //Reference all the CheckBoxes in Table.
-      var chks = tblFruits.getElementsByTagName("INPUT");
-
-      // Loop and push the checked CheckBox value in Array.
-      for (var i = 0; i < chks.length; i++) {
-        if (chks[i].checked) {
-          selected.push(chks[i].value);
-        } else {
-          selected.push('0');
-        }
-      }
-
-      return selected;
-    };
-
-  </script> -->
+</script>
 
 </body>
 

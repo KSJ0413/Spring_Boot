@@ -162,7 +162,7 @@ public class ListController {
 
         // DB에서 가져올 순번-----------------
         int sno = ((nowPage - 1) * recordPerPage);
-        // int eno = nowPage * recordPerPage;
+         int eno = nowPage * recordPerPage;
 
         Map map = new HashMap();
         map.put("col", col);

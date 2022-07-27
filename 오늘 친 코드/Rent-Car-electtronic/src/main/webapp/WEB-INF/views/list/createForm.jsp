@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 
-<script src="/js/list/editor.js" defer></script>
+<script src="/js/list/create.js" defer></script>
     <style>
       .container {
         width: 950px;

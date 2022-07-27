@@ -1,19 +1,50 @@
 $(function(){
 
-  $.ajax({
-            data: data,
-            type: "POST",
-            url: "https://naveropenapi.apigw.ntruss.com/recog/v1/stt",
-            contentType: false,
-            processData: false,
-            success: function (data) {
-              console.log(data);
-              //항상 업로드된 파일의 url이 있어야 한다.
-              $('#summernote').summernote('insertImage', data.url);
-            },
-            error: function () {
-              alert("에러입니다");
-            }
-          });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ if(!("webkitSpeechRecognition") in window){
+        alert("Connect in Chrome Browser");
+    }else{
+        const speech = new webkitSpeechRecognition;
+
+        document.getElementById("rcdStart").addEventListener("click",()=>{
+            speech.start();
+            console.log('start!');
+            setTimeout(function() {
+             speech.stop();
+             console.log('stop!');
+            }, 3000);
+        });
+
+
+
+        speech.addEventListener("result", (event)=>{
+            console.log(event);
+            const { transcript } = event["results"][0][0];
+            console.log(transcript);
+            resultListView(transcript);
+        });
+
+        function resultListView(transcript){
+            document.getElementById("word").value = transcript;
+        }
+    }
+
 
 });

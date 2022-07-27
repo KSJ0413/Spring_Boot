@@ -2,7 +2,24 @@
 $(function(){
 
 
-$("#btn").click(function(){ //글 삭제
+$("#btn_update").click(function(){ //글 삭제
+
+	var url = "/contents/list/update";
+           url += "?listno="+listno;
+//           url += "&col=${col}";
+//           url += "&word=${word}";
+//           url += "&nowPage=${nowPage}";
+           location.href=url;
+
+});
+
+
+
+
+
+
+
+$("#btn_delete").click(function(){ //글 삭제
 
 	console.log(listno);
 

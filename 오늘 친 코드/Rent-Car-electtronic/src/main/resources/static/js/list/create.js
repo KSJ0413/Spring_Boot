@@ -1,7 +1,7 @@
  $(document).ready(function () {
   var fontList = ['맑은 고딕','굴림','돋움','바탕','궁서','NotoSansKR','Arial','Courier New','Verdana','Tahoma','Times New Roamn'];
         $('#summernote').summernote({
-          height: 150,                 // 에디터 높이
+          height: 300,                 // 에디터 높이
           minHeight: null,             // 최소 높이
           maxHeight: null,             // 최대 높이
           focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부

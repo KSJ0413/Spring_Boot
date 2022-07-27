@@ -51,6 +51,18 @@ $("#btn11").click(function(){
 
 
 
+fetch(`/carinfo/create`,{method: 'POST',
+                        body : data})
+               .then(response => response.text())
+               .then(location.reload())
+               .catch(console.log);
+        		});
+
+
+
+
+
+
 
 //      const response = await fetch("/carinfo/create", {
 //        method: 'POST',

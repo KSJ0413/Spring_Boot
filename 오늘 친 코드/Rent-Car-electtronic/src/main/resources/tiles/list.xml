@@ -19,7 +19,7 @@
 
     <definition name="/list/create" extends="main">
         <put-attribute name="title" value="list 등록" ></put-attribute>
-        <put-attribute name="body" value="/WEB-INF/views/list/asd.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/list/createForm.jsp" />
     </definition>
     <definition name="/list/read" extends="main">
         <put-attribute name="title" value="list 조회" ></put-attribute>

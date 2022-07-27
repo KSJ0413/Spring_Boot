@@ -6,6 +6,7 @@
 <!DOCTYPE html> 
 <html> 
 <head>
+ <script src="/js/list/list.js" defer></script>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
    <script type="text/javascript">
@@ -25,6 +26,13 @@
     margin: 0 auto;
     position: relative;
   }
+.tbody{
+text-align: center;
+}
+
+.thead{
+text-align: center;
+}
 
   </style>
 
@@ -34,7 +42,7 @@
 <div class="container">
  
     <h1 class="col-sm-offset-2 col-sm-10">맛집 목록</h1>
-<form class="form-inline" action="/list" >
+<form action="/contents/list" class='form-inline'>
     <div class="form-group">
       <select class="form-control" name="col">
         <option value="wname"
@@ -56,7 +64,17 @@
 
 
       <input type="text" class="form-control" placeholder="Enter 검색어"
-      name="word" value="${word}">
+       id="word"   name="word" value="${word}">
+
+      <!--        -------------------------------------------------------------- -->
+ <img src="/images/SJ/mic.png" style="height:25px;" id="rcdStart">
+
+
+
+
+
+          <!--        -------------------------------------------------------------- -->
+
 
 
     <button class="btn btn-default" >검색</button>
@@ -65,9 +83,9 @@
   	</c:if>
   	  	 <button type="button" class="btn btn-default" onclick="location.href='/contents/list/create'">등록</button>
 </div>
- </form>
+	</form>
  <br>
-<table class="table table-striped" >
+<table class="table table-striped" style=" width: 900px;">
    <thead>
     <tr>
     <th>제목</th>
@@ -77,17 +95,18 @@
     <th><span style="color:#FF0040;">추천</span></th>
     </tr>
    </thead>
-   <tbody>
+   <tbody class="tbody">
 
 <c:choose>
 <c:when test="${empty list}">
-   <tr><td colspan="6">등록된 글이 없습니다.</td>
+   <tr><td colspan="6">등록된 글이 없습니다.</td></tr>
 </c:when>
 <c:otherwise>
 
    <c:forEach var="dto" items="${list}">
 
    <tr>
+   &nbsp;&nbsp;
     <td>
     <a href="javascript:read('${dto.listno}')">${dto.title}</a>
 
@@ -98,7 +117,7 @@
     </td>
     <td>${dto.wname}</td>
     <td>${dto.rdate}</td>
-    <td>&emsp;&emsp;${dto.cnt}</td>
+    <td>${dto.cnt}</td>
     <td>
     <span style="color:#FF0040;">
     &emsp;${dto.recommend}</span> <img src="/images/SJ/free-icon-love-1029132.png" style="height:25px; " ></td>

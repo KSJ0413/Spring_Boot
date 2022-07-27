@@ -49,7 +49,7 @@
     <label class="control-label col-sm-2" for="content">내용</label>
     <div class="col-sm-8">
     <textarea rows="12" cols="7" id="summernote" name="content"
-    class="form-control">${dto.content}</textarea>
+    class="summernote">${dto.content}</textarea>
     </div>
   </div>
   

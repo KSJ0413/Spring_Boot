@@ -31,7 +31,8 @@
           <th>&emsp;${dto.rdate}&emsp;</th>
           <th>조회수: ${dto.cnt}</th>
              <div style="display: inline-block; margin: 0 5px;  float: right;">
-            <button id='btn' class='btn' style="width:10; height:5;" >글 삭제</button>
+            <button id='btn_delete' class='btn' style="width:10; height:5;" >글 삭제</button>
+
              </div>
 
 
@@ -132,6 +133,9 @@
                      <!-- 댓글용 paging 로그인 id -->
                      let nPage = "${nPage}";
                      let id = "${sessionScope.id}";
+
+
+
                   </script>
 
 
