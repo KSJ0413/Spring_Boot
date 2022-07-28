@@ -1,12 +1,17 @@
 package com.rentcar.utility.Ncloud.controller;
 
+import com.google.gson.JsonObject;
 import com.rentcar.utility.Ncloud.AwsS3;
 import com.rentcar.utility.Ncloud.service.AwsS3Service;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.io.FileUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/s3")
@@ -18,7 +23,9 @@ public class AwsS3Controller {
     @PostMapping("/resource")
     public AwsS3 upload(@RequestPart("file") MultipartFile multipartFile) throws IOException {
 
-        return awsS3Service.upload(multipartFile,"upload");
+
+        return awsS3Service.upload(multipartFile,"list");
+
     }
 
     @GetMapping("/resource/{idx}")

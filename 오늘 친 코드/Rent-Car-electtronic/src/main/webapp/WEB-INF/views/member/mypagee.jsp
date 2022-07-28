@@ -6,10 +6,10 @@
     <meta name="keywords" content="나의 정보">
     <meta name="description" content="">
     <title>Home</title>
-    <link rel="stylesheet" href="/css/list/mypage/nicepage.css" media="screen">
-<link rel="stylesheet" href="/css/list/mypage/Home.css" media="screen">
-    <script class="u-script" type="text/javascript" src="/js/list/mypage/jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="/js/list/mypage/nicepage.js" defer=""></script>
+    <link rel="stylesheet" href="/css/member/mypage/nicepage.css" media="screen">
+<link rel="stylesheet" href="/css/member/mypage/Home.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/js/member/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/js/member/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.14.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 

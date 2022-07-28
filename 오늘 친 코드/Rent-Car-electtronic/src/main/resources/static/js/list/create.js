@@ -43,7 +43,7 @@
           $.ajax({
             data: data,
             type: "POST",
-            url: "/uploadSummernoteImageFile",
+            url: "/s3/resource",
             contentType: false,
             processData: false,
             success: function (data) {
