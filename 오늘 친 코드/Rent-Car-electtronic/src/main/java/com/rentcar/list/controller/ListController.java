@@ -9,9 +9,7 @@ import com.rentcar.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -29,18 +27,15 @@ public class ListController {
     private ReviewServiceImpl rservice;
 
 
-    @GetMapping("/list/delete")
-    public String delete(int listno, Model model) {
 
-        model.addAttribute("listno", listno);
-        return "/list/delete";
-    }
 
     @PostMapping("/list/delete")
     public String delete(int listno) {
-        System.out.println(listno);
+        System.out.println("********************************"+listno);
 
-        rservice.bdelete(listno);
+
+            System.out.println("********************************"+listno);
+            rservice.bdelete(listno);
 
 
         service.delete(listno);

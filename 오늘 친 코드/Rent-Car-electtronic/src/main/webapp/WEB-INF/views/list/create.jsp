@@ -1,86 +1,58 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
-  <!DOCTYPE html>
-  <html>
-
-  <head>
-    <title>notice</title>
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <meta name="keywords" content="맛집 추가​">
+    <meta name="description" content="">
+    <title>Home</title>
 
-    <!-- include libraries(jQuery, bootstrap) -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- include summernote css/js -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <link rel="stylesheet" href="/css/list/create/nicepage.css" media="screen">
+    <link rel="stylesheet" href="/css/list/create/Home.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/js/member/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/js/member/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.14.1, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 
 
-<script src="/js/list/editor.js" defer></script>
-    <style>
-      .container {
-        width: 950px;
-        margin: 0 auto;
-        position: relative;
-      }
-    </style>
-
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
   </head>
-
-  <body>
-    <div class="container">
- <h1 class="col-sm-offset-2 col-sm-10">게시판 생성</h1>
-
-      <form class="form-horizontal" action="./create" method="post" enctype="multipart/form-data"
-        onsubmit="return checkIn(this)">
-
- <br>
-         <div class="form-group">
-             <label class="control-label col-sm-2" for="wname">작성자</label>
-             <div class="col-sm-6">
-             <input type="text" name="title" id="title" class="form-control" placeholder= '이름을 입력해 주세요.'>
-          <!--     <label class="control-label col-sm-2" for="wname">wname</label> -->
-             </div>
-           </div>
-           <div class="form-group">
-             <label class="control-label col-sm-2" for="title">제목</label>
-             <div class="col-sm-8">
-               <input type="text" name="title" id="title" class="form-control" placeholder= '제목을 입력해 주세요.'>
-             </div>
-           </div>
-
-            <div class="form-group">
-             <label class="control-label col-sm-2" for="content">내용</label>
-             <div class="col-sm-8">
-              <textarea id="summernote" name="content" class="summernote" placeholder: '명예훼손, 개인정보 유출, 분쟁 유발, 허위사실 유포 등의 글은 이용약관에 의해 제재는
-법률에 의해 처벌 받을 수 있습니다. 건전한 커뮤니티를 위해 자제를 당부 부탁드립니다.',></textarea>
-             </div>
-          </div>
+  <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode" data-lang="en">
+    <section class="u-clearfix u-section-1" id="sec-6d42">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">
+          <span style="font-weight: 700;">맛집 추가</span>
+          <span style="font-weight: 700;"></span>
+        </h2>
+        <h3 class="u-text u-text-default u-text-2">이름 :</h3>
+        <h3 class="u-text u-text-default u-text-palette-1-base u-text-3">name</h3>
+        <h3 class="u-text u-text-default u-text-4">제목 :</h3>
+         <input type="text" name="title" id="title" class="u-border-none u-btn u-button-style u-btn-1" placeholder= '제목을 입력해 주세요.' style="">
+        <a href="https://nicepage.com/c/pricing-html-templates" class="u-border-none u-btn u-button-style u-btn-2">Button</a>
+        <a href="https://nicepage.com/c/food-restaurant-html-templates" class="u-border-2 u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-palette-1-base u-none u-radius-6 u-text-body-color u-text-hover-white u-btn-3">등록</a>
+        <a href="https://nicepage.cloud" class="u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-palette-2-base u-none u-radius-6 u-text-body-color u-text-hover-white u-btn-4">취소</a>
+      </div>
+    </section>
 
 
 
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/templates" target="_blank">
+        <span>Free Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.com/website-builder" target="_blank">
+        <span>Free Website Builder</span>
+      </a>.
+    </section>
 
-
-
-
-
-
-
-
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-5">
-            <button id="btn">등록</button>
-            <button type="reset" class="btn">취소</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <script>
-      let listno = "${dto.listno}";
-
-    </script>
-
-  </body>
-  </html>
+</body></html>

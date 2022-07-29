@@ -1,4 +1,4 @@
-package com.rentcar.utility.Ncloud;
+package com.rentcar;
 
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -7,12 +7,13 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.net.URL;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 class AwsS3ConfigTest {
     final String endPoint = "https://kr.object.ncloudstorage.com";

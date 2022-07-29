@@ -24,10 +24,14 @@ $("#btn_delete").click(function(){ //글 삭제
 	console.log(listno);
 
 
-		fetch(`/list/delete`,{method: 'post'})
+
+			fetch("/list/delete",{method: 'post'})
                        .then(response => response.text())
-                        .then(location.href="/contents/list")
-                       .catch(console.log);
+                       .catch(alert("실패"));
+
+
+
+
 
 });
 
@@ -62,6 +66,7 @@ fetch(`/review/${rnum}`,{method: 'delete'})
                .then(response => response.text())
                .then(location.reload())
                .catch(console.log);
+
         		});
 
 

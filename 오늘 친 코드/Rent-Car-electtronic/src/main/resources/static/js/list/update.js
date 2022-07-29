@@ -43,13 +43,13 @@
           $.ajax({
             data: data,
             type: "POST",
-            url: "/uploadSummernoteImageFile",
+            url: "/s3/resource",
             contentType: false,
             processData: false,
             success: function (data) {
               console.log(data);
               //항상 업로드된 파일의 url이 있어야 한다.
-              $('#summernote').summernote('insertImage', data.url);
+              $('#summernote').summernote('insertImage', data.path);
             },
             error: function () {
               alert("에러입니다");

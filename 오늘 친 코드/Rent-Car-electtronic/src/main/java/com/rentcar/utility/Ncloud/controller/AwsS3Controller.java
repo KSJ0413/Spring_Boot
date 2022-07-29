@@ -30,6 +30,8 @@ public class AwsS3Controller {
 
     @GetMapping("/resource/{idx}")
     public void get(@PathVariable("idx") String idx) {
+
+
         awsS3Service.get(idx);
     }
 

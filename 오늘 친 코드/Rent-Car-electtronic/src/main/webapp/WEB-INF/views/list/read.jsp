@@ -5,11 +5,11 @@
     <!DOCTYPE html>
     <html>
     <head>
-  <script src="/js/list/read.js" defer></script>
+<link rel="shortcut icon" href="#">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width">
       <title>JS Bin</title>
-       <link rel="stylesheet" type="text/css" href="/css/list2.css"/>
+       <link rel="stylesheet" type="text/css" href="/css/list/read.css"/>
        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <style>
@@ -23,7 +23,7 @@
     </head>
     <body>
 
-<input type="hidden" name="listno" value="${dto.listno}">
+<input type="hidden" name="listno" id="listno" value="${dto.listno}">
       <div class="container">
         <div id="div1">
          <table class="table table-striped">
@@ -31,6 +31,7 @@
           <th>&emsp;${dto.rdate}&emsp;</th>
           <th>조회수: ${dto.cnt}</th>
              <div style="display: inline-block; margin: 0 5px;  float: right;">
+             <button id='btn_update' class='btn' style="width:10; height:5;" >글 수정</button>
             <button id='btn_delete' class='btn' style="width:10; height:5;" >글 삭제</button>
 
              </div>
@@ -114,7 +115,7 @@
 법률에 의해 처벌 받을 수 있습니다. 건전한 커뮤니티를 위해 자제를 당부 드립니다." style="width:830px; height:70px;"></textarea>
              </th>
              <th>
-             <button id='addreviewBtn' class='btn btn-primary btn-xs pull-right' type="button" style="width:100px; height:85px;" >등 록</button>
+             <button id='addreviewBtn' class='btn btn-primary btn-xs pull-right' type="button" style="width:100px; height:70px;" >등 록</button>
 
              </th>
              </table>
@@ -143,7 +144,7 @@
 
 
 
-
+ <script src="/js/list/read.js" defer></script>
 
     </body>
     </html>

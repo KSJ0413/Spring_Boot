@@ -47,30 +47,21 @@
             contentType: false,
             processData: false,
             success: function (data) {
-              console.log(data);
               //항상 업로드된 파일의 url이 있어야 한다.
-              $('#summernote').summernote('insertImage', data.url);
+              $('#summernote').summernote('insertImage', data.path);
+              console.log("data.path = "+data.path)
             },
             error: function () {
-              alert("에러입니다");
+              alert("2222222에러입니다");
             }
-          });
+          })
+
+
           }
 
 
              });
-//          function uploadResource(file, editor) {
-//            const formData = new FormData();
-//            formData.append("file", file);
-//             console.log("formData ="+formData);
-//            fetch("/uploadSummernoteImageFile", {
-//              method: "POST",
-//              body: formData
-//            })
-//              .then(result => result.json())
-//              .then(data => document.getElementById("img").setAttribute("src", data.path))
-//              .catch(error => console.log(`error => ${error}`));
-//          }
+
 
       function checkIn(f) {
         if (f.wname.value == "") {
@@ -94,3 +85,51 @@
           return false;
         }
       }
+
+
+//   function uploadResource(file, editor) {
+//          data = new FormData();
+//          data.append("file", file);
+//          console.log(data);
+//          $.ajax({
+//            data: data,
+//            type: "POST",
+//            url: "/s3/resource",
+//            contentType: false,
+//            processData: false,
+//            success: function (data) {
+//              //항상 업로드된 파일의 url이 있어야 한다.
+//              $('#summernote').summernote('insertImage', data.path);
+//              console.log("data.path = "+data.path)
+//var idx = data.path;
+//console.log("idx = "+idx)
+//  $.ajax({
+//            data: idx,
+//            type: "get",
+//            url: "/s3/resource/${idx}",
+//            contentType: false,
+//            processData: false,
+//            success: function (data) {
+//              //항상 업로드된 파일의 url이 있어야 한다.
+//             alert("성공");
+//
+//            },
+//            error: function () {
+//              alert("1111에러입니다");
+//            }
+//          })
+//
+//
+//
+//
+//
+//
+//
+//            },
+//            error: function () {
+//              alert("2222222에러입니다");
+//            }
+//          })
+//
+//
+//          }

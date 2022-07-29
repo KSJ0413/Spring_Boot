@@ -31,7 +31,7 @@
 
   <body>
     <div class="container">
- <h1 class="col-sm-offset-2 col-sm-10">게시판 생성</h1>
+ <h1 class="col-sm-offset-2 col-sm-10">맛집 추가</h1>
 
       <form class="form-horizontal" action="./create" method="post" enctype="multipart/form-data"
         onsubmit="return checkIn(this)">
@@ -41,7 +41,6 @@
              <label class="control-label col-sm-2" for="wname">작성자</label>
              <div class="col-sm-6">
              <input type="text" name="wname" id="wname" class="form-control" placeholder= '이름을 입력해 주세요.'>
-          <!--     <label class="control-label col-sm-2" for="wname">wname</label> -->
              </div>
            </div>
            <div class="form-group">
