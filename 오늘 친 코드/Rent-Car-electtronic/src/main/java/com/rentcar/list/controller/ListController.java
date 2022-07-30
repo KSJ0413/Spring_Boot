@@ -27,21 +27,16 @@ public class ListController {
     private ReviewServiceImpl rservice;
 
 
-
-
     @PostMapping("/list/delete")
     public String delete(int listno) {
-        System.out.println("********************************"+listno);
+        System.out.println("********************************" + listno);
+        System.out.println("********************************" + listno);
 
-
-            System.out.println("********************************"+listno);
-            rservice.bdelete(listno);
-
+        rservice.bdelete(listno);
 
         service.delete(listno);
 
         return "redirect:/contents/list";
-
 
     }
 
@@ -157,7 +152,7 @@ public class ListController {
 
         // DB에서 가져올 순번-----------------
         int sno = ((nowPage - 1) * recordPerPage);
-         int eno = nowPage * recordPerPage;
+        int eno = nowPage * recordPerPage;
 
         Map map = new HashMap();
         map.put("col", col);
@@ -185,7 +180,6 @@ public class ListController {
         return "/list";
 
     }
-
 
 
 }

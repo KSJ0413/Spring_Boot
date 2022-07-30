@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 
-<script src="/js/list/create.js" defer></script>
+
     <style>
       .container {
         width: 950px;
@@ -73,13 +73,18 @@
             <button id="btn">등록</button>
             <button type="reset" class="btn">취소</button>
           </div>
+          <input type="text" name="content" id="hihi" value="">
         </div>
       </form>
     </div>
-    <script>
-      let listno = "${dto.listno}";
 
-    </script>
+    <button id="but">버튼</button>
 
+ <script src="/js/list/create.js" defer></script>
+     <script>
+       let listno = "${dto.listno}";
+
+     </script>
   </body>
+
   </html>

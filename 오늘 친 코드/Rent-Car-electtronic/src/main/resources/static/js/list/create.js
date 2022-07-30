@@ -1,3 +1,4 @@
+
  $(document).ready(function () {
   var fontList = ['맑은 고딕','굴림','돋움','바탕','궁서','NotoSansKR','Arial','Courier New','Verdana','Tahoma','Times New Roamn'];
         $('#summernote').summernote({
@@ -50,6 +51,11 @@
               //항상 업로드된 파일의 url이 있어야 한다.
               $('#summernote').summernote('insertImage', data.path);
               console.log("data.path = "+data.path)
+
+               document.querySelector("#hihi").value = data.path;
+
+
+
             },
             error: function () {
               alert("2222222에러입니다");

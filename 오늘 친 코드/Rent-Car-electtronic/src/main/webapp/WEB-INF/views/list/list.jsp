@@ -33,7 +33,10 @@ text-align: center;
 .thead{
 text-align: center;
 }
-
+.rcdStart blink{
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
   </style>
 
  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -67,7 +70,10 @@ text-align: center;
        id="word"   name="word" value="${word}">
 
       <!--        -------------------------------------------------------------- -->
- <img src="/images/SJ/mic.png" style="height:25px;" id="rcdStart">
+
+      <span >
+ <img src="/images/SJ/mic.png" style="height:25px;" id="rcdStart" class="blink">
+</span>
 
 
 
@@ -135,6 +141,8 @@ text-align: center;
   </div>
 
 </div>
+
+
 
 </body> 
 </html> 

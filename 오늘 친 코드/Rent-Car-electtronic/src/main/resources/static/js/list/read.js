@@ -18,16 +18,24 @@ $("#btn_update").click(function(){ //글 삭제
 
 
 
-
 $("#btn_delete").click(function(){ //글 삭제
 
 	console.log(listno);
 
 
-
-			fetch("/list/delete",{method: 'post'})
-                       .then(response => response.text())
-                       .catch(alert("실패"));
+$.ajax({
+	url : "http://localhost:9090/contents/list/delete",
+	type : 'post',
+	data : {
+		listno : listno
+	},
+	success : function(data) {
+				location.href="/contents/list";
+     },
+	error : function() {
+		alert("error");
+	}
+});
 
 
 
