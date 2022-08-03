@@ -2,14 +2,16 @@
  $(document).ready(function () {
   var fontList = ['맑은 고딕','굴림','돋움','바탕','궁서','NotoSansKR','Arial','Courier New','Verdana','Tahoma','Times New Roamn'];
         $('#summernote').summernote({
-          height: 300,                 // 에디터 높이
+          height: 1000,                 // 에디터 높이
+          width: 1200,                  // 에디터 넓이
           minHeight: null,             // 최소 높이
           maxHeight: null,             // 최대 높이
           focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
           lang: "ko-KR",					// 한글 설정
+          placeholder:'이쁘게 맛집을 소개해주세요',
                 fontNames: fontList,
                           fontNamesIgnoreCheck: fontList,
-                          fontSizes: ['8','9','10','11','12','14','18','24','36'],
+                          fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
                           toolbar: [
                               ['font', ['fontname','fontsize','fontsizeunit']],
                               ['fontstyle', ['bold','italic','underline','strikethrough','forecolor','backcolor','superscript','subscript','clear']],
@@ -49,13 +51,11 @@
             processData: false,
             success: function (data) {
               //항상 업로드된 파일의 url이 있어야 한다.
+              console.log("data = "+data)
+              console.log("datakey = "+data.key)
               $('#summernote').summernote('insertImage', data.path);
               console.log("data.path = "+data.path)
-
-               document.querySelector("#hihi").value = data.path;
-
-
-
+              document.querySelector("#data_key").value = data.key;
             },
             error: function () {
               alert("2222222에러입니다");
@@ -69,12 +69,14 @@
              });
 
 
+
+
+
+
+
+
+
       function checkIn(f) {
-        if (f.wname.value == "") {
-          alert("글쓴이를 입력하세요");
-          f.wname.focus()
-          return false;
-        }
         if (f.title.value == "") {
           alert("제목를 입력하세요");
           f.title.focus();
@@ -85,11 +87,7 @@
           CKEDITOR.instances['content'].focus();
           return false;
         }
-        if (f.passwd.value == "") {
-          alert("패스워드를 입력하세요");
-          f.passwd.focus();
-          return false;
-        }
+
       }
 
 

@@ -37,6 +37,7 @@ public class AwsS3Controller {
 
     @DeleteMapping("/resource")
     public void remove(AwsS3 awsS3) {
+
         awsS3Service.remove(awsS3);
     }
 }

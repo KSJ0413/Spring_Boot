@@ -20,41 +20,40 @@
 
 
     <style>
-      .container {
-        width: 950px;
-        margin: 0 auto;
-        position: relative;
-      }
+  .container {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
     </style>
 
   </head>
 
   <body>
     <div class="container">
- <h1 class="col-sm-offset-2 col-sm-10">맛집 추가</h1>
+ <h1>맛집 추가</h1>
 
       <form class="form-horizontal" action="./create" method="post" enctype="multipart/form-data"
         onsubmit="return checkIn(this)">
 
  <br>
          <div class="form-group">
-             <label class="control-label col-sm-2" for="wname">작성자</label>
+
              <div class="col-sm-6">
-             <input type="text" name="wname" id="wname" class="form-control" placeholder= '이름을 입력해 주세요.'>
+             <input type="text" name="wname" id="wname" class="form-control" placeholder= '작성자를 입력해 주세요.' style="width:300px;font-size:14px;">
              </div>
            </div>
            <div class="form-group">
-             <label class="control-label col-sm-2" for="title">제목</label>
+
              <div class="col-sm-8">
-               <input type="text" name="title" id="title" class="form-control" placeholder= '제목을 입력해 주세요.'>
+               <input type="text" name="title" id="title" class="form-control" placeholder= '제목을 입력해 주세요.' style="width:1200px;font-size:14px;">
              </div>
            </div>
 
             <div class="form-group">
-             <label class="control-label col-sm-2" for="content">내용</label>
+
              <div class="col-sm-8">
-              <textarea id="summernote" name="content" class="summernote" placeholder: '명예훼손, 개인정보 유출, 분쟁 유발, 허위사실 유포 등의 글은 이용약관에 의해 제재는
-법률에 의해 처벌 받을 수 있습니다. 건전한 커뮤니티를 위해 자제를 당부 부탁드립니다.',></textarea>
+              <textarea id="summernote" name="content" class="summernote"></textarea>
              </div>
           </div>
 
@@ -73,12 +72,12 @@
             <button id="btn">등록</button>
             <button type="reset" class="btn">취소</button>
           </div>
-          <input type="text" name="content" id="hihi" value="">
+
         </div>
+
       </form>
     </div>
 
-    <button id="but">버튼</button>
 
  <script src="/js/list/create.js" defer></script>
      <script>

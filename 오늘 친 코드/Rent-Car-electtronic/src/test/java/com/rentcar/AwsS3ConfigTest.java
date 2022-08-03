@@ -153,8 +153,8 @@ class AwsS3ConfigTest {
                 .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
                 .build();
 
-        String bucketName = "speech999";
-        String objectName = "녹음 (4).m4a";
+        String bucketName = "imagetest";
+        String objectName = "list/0b943d26-e0e6-407e-a774-3beca539316fsearch.pstatic.jpg";
 
 // delete object
         try {

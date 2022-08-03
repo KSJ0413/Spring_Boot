@@ -23,6 +23,9 @@ $("#btn_delete").click(function(){ //글 삭제
 	console.log(listno);
 
 
+
+
+
 $.ajax({
 	url : "http://localhost:9090/contents/list/delete",
 	type : 'post',
