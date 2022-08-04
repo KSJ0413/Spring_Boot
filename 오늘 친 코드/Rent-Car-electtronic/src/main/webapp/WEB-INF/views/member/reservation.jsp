@@ -88,7 +88,7 @@
 
 
 
-                 <img src="https://img.khan.co.kr/news/2021/12/21/l_2021122101002713000235791.jpg" style="height:600px; width:900px;">
+                 <img src="https://img.khan.co.kr/news/2021/12/21/l_2021122101002713000235791.jpg" style="height:600px; width:1200;">
 
 
 
@@ -133,12 +133,12 @@
                   <h5 class="u-align-center u-text u-text-default u-text-12" > 후방센서</h5>
                 </div>
               </div>
-              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-4">
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-4" style="opacity: 0.4;">
                 <div class="u-container-layout u-valign-middle">
                   <h6 class="u-align-center u-text u-text-default u-text-13">후방 카메라</h6>
                 </div>
               </div>
-              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-5">
+              <div class="u-border-3 u-border-palette-1-base u-container-style u-group u-palette-1-base u-radius-50 u-shape-round u-group-5" style="opacity: 0.4;">
                 <div class="u-container-layout u-valign-middle">
                   <h6 class="u-text u-text-default u-text-14">블랙박스</h6>
                 </div>
