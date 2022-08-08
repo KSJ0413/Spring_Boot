@@ -20,6 +20,7 @@
   }
 
   </style>
+
     </head>
     <body>
 
@@ -48,8 +49,9 @@
         <h1>${dto.title}</h1>
 
         <br><br><br>
+        <article>
         <h3>${dto.content}</h3>
-
+</article>
           <br><br><br>
           <div style="display: flex;   justify-content : center;">
           <button id="btn1" style="border-radius: 30px;"><img src="/images/SJ/free-icon-thumb-up-889221.png" style="height:130px;"></button>
@@ -87,7 +89,7 @@
 
 
 
-    <a >${list.content}</a>
+    <a id="contents">${list.content}</a>
     <div style="display: inline-block; margin: 0 5px;  float: right;">
    <button id='delete' class='delete' style="width:20; height:20;">삭 제</button>
     </div>
@@ -116,6 +118,7 @@
              </th>
              <th>
              <button id='addreviewBtn' class='btn btn-primary btn-xs pull-right' type="button" style="width:100px; height:70px;" >등 록</button>
+             <button id='btt' >btt</button>
 
              </th>
              </table>
@@ -145,6 +148,41 @@
 
 
  <script src="/js/list/read.js" defer></script>
+  <script>
+  $("#btt").click(function(){
+  var articles = document.getElementsByTagName('article');
+  for(var i=0; i<articles.length; i++){
+       var imgs = document.querySelectorAll('img');
+   console.log(imgs);
+for(var j=0; j<imgs.length; j++){
+        var img = imgs[j];
+           console.log(img);
+        var img = img.src;
+   console.log(img);
+   data = {
+"path" : img,
 
+   }
+$.ajax({
+            data: data,
+            type: "POST",
+            url: "/s3/resourcee",
+            contentType: false,
+            processData: false,
+            success: function (data) {
+              console.log(data);
+              //항상 업로드된 파일의 url이 있어야 한다.
+              console.log("성공입니다!");
+            },
+            error: function () {
+              console.log("에러입니다");
+            }
+          });
+
+
+}
+    }
+});
+  </script>
     </body>
     </html>
