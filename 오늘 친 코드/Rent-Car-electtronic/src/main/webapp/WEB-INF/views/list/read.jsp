@@ -118,7 +118,7 @@
              </th>
              <th>
              <button id='addreviewBtn' class='btn btn-primary btn-xs pull-right' type="button" style="width:100px; height:70px;" >등 록</button>
-             <button id='btt' >btt</button>
+
 
              </th>
              </table>
@@ -149,40 +149,21 @@
 
  <script src="/js/list/read.js" defer></script>
   <script>
-  $("#btt").click(function(){
-  var articles = document.getElementsByTagName('article');
-  for(var i=0; i<articles.length; i++){
-       var imgs = document.querySelectorAll('img');
-   console.log(imgs);
-for(var j=0; j<imgs.length; j++){
-        var img = imgs[j];
-           console.log(img);
-        var img = img.src;
-   console.log(img);
-   data = {
-"path" : img,
 
-   }
-$.ajax({
-            data: data,
-            type: "POST",
-            url: "/s3/resourcee",
-            contentType: false,
-            processData: false,
-            success: function (data) {
-              console.log(data);
-              //항상 업로드된 파일의 url이 있어야 한다.
-              console.log("성공입니다!");
-            },
-            error: function () {
-              console.log("에러입니다");
-            }
-          });
+var imgs = document.querySelectorAll('img');
+       console.log(imgs);
+       for(var i=0; i<imgs.length; i++){
+       var img = imgs[i];
+       console.log(img);
+       var img = img.src;
+       console.log(img);
+       var key = img.substring(46);
+       console.log(key);
+       console.log(key.length);
+       if(key.length>40){
 
-
+       }
 }
-    }
-});
   </script>
     </body>
     </html>

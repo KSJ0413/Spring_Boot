@@ -8,37 +8,11 @@
 <head>
  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
  <script src="/js/list/list.js" defer></script>
-  <title>Bootstrap Example</title>
+ <link rel="stylesheet" type="text/css" href="/css/list/list.css"/>
+  <title>맛집 게시판</title>
   <meta charset="utf-8">
-   <script type="text/javascript">
-     function read(listno){
-       var url = "/contents/list/read";
-       url += "?listno="+listno;
-       url += "&col=${col}";
-       url += "&word=${word}";
-       url += "&nowPage=${nowPage}";
-       location.href=url;
 
-     }
-  </script>
-  <style>
-  .container {
-    width: 1200px;
-    margin: 0 auto;
-    position: relative;
-  }
-.tbody{
-text-align: center;
-}
 
-.thead{
-text-align: center;
-}
-.rcdStart blink{
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-  </style>
 
 
 </head>
@@ -48,7 +22,7 @@ text-align: center;
     <h1 class="col-sm-offset-2 col-sm-10">맛집 목록</h1>
 <form action="/contents/list" class='form-inline'>
     <div class="form-group">
-      <select class="form-control" name="col">
+      <select class="control" name="col">
         <option value="wname"
         <c:if test= "${col=='wname'}"> selected </c:if>
         >성명</option>
@@ -67,7 +41,7 @@ text-align: center;
      </select>
 
 
-      <input type="text" class="form-control" placeholder="Enter 검색어"
+      <input type="text" class="control" placeholder="Enter 검색어"
        id="word"   name="word" value="${word}">
 
 
@@ -90,7 +64,7 @@ text-align: center;
 </div>
 	</form>
  <br>
-<table class="table table-striped" style=" width: 900px;">
+<table class="table table-striped" style=" width: 1200px;">
    <thead>
     <tr>
     <th>제목</th>
@@ -104,7 +78,8 @@ text-align: center;
 
 <c:choose>
 <c:when test="${empty list}">
-   <tr><td colspan="6">등록된 글이 없습니다.</td></tr>
+<br>
+   <tr><td colspan="6"><br>등록된 글이 없습니다.</td></tr>
 </c:when>
 <c:otherwise>
 

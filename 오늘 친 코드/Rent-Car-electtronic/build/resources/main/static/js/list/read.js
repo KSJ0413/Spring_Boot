@@ -2,7 +2,7 @@
 $(function(){
 
 
-$("#btn_update").click(function(){ //글 삭제
+$("#btn_update").click(function(){ //글 수정
 
 	var url = "/contents/list/update";
            url += "?listno="+listno;
@@ -20,10 +20,39 @@ $("#btn_update").click(function(){ //글 삭제
 
 $("#btn_delete").click(function(){ //글 삭제
 
+
+ var imgs = document.querySelectorAll('img');
+        console.log(imgs);
+        for(var i=0; i<imgs.length; i++){
+        var img = imgs[i];
+        console.log(img);
+        var img = img.src;
+        console.log(img);
+        var key = img.substring(46);
+        console.log(key);
+        console.log(key.length);
+        if(key.length>40){
+//if(key.lenght)
+        $.ajax({
+       	url : "/s3/resource",
+        type : 'delete',
+        data : {
+        key : key
+        },
+        success : function(data) {
+        console.log("성공");
+        },
+        error : function() {
+        alert("error");
+        }
+        });
+}
+
+
+}
 	console.log(listno);
 
-
-
+ setTimeout(
 
 
 $.ajax({
@@ -38,8 +67,8 @@ $.ajax({
 	error : function() {
 		alert("error");
 	}
-});
-
+})
+ ,1000);
 
 
 

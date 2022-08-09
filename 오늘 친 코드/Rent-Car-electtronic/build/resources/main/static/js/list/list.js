@@ -1,6 +1,10 @@
 
 
-
+ function read(listno){
+       var url = "/contents/list/read";
+       url += "?listno="+listno;
+       location.href=url;
+       }
 
 
 
