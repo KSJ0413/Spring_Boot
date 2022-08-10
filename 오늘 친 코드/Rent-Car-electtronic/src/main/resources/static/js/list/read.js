@@ -40,7 +40,23 @@ $("#btn_delete").click(function(){ //글 삭제
         key : key
         },
         success : function(data) {
-        console.log("성공");
+        console.log(listno);
+        $.ajax({
+        	url : "http://localhost:9090/contents/list/delete",
+        	type : 'post',
+        	data : {
+        		listno : listno
+        	},
+        	success : function(data) {
+        				location.href="/contents/list";
+             },
+        	error : function() {
+        		alert("error");
+        	}
+        })
+
+
+
         },
         error : function() {
         alert("error");
@@ -50,25 +66,8 @@ $("#btn_delete").click(function(){ //글 삭제
 
 
 }
-	console.log(listno);
-
- setTimeout(
 
 
-$.ajax({
-	url : "http://localhost:9090/contents/list/delete",
-	type : 'post',
-	data : {
-		listno : listno
-	},
-	success : function(data) {
-				location.href="/contents/list";
-     },
-	error : function() {
-		alert("error");
-	}
-})
- ,1000);
 
 
 

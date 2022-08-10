@@ -12,14 +12,6 @@
        <link rel="stylesheet" type="text/css" href="/css/list/read.css"/>
        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-<style>
-  .container {
-    width: 1200px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  </style>
 
     </head>
     <body>
@@ -148,22 +140,6 @@
 
 
  <script src="/js/list/read.js" defer></script>
-  <script>
 
-var imgs = document.querySelectorAll('img');
-       console.log(imgs);
-       for(var i=0; i<imgs.length; i++){
-       var img = imgs[i];
-       console.log(img);
-       var img = img.src;
-       console.log(img);
-       var key = img.substring(46);
-       console.log(key);
-       console.log(key.length);
-       if(key.length>40){
-
-       }
-}
-  </script>
     </body>
     </html>

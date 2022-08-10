@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  var fontList = ['맑은 고딕','굴림','돋움','바탕','궁서','NotoSansKR','Arial','Courier New','Verdana','Tahoma','Times New Roamn'];
         $('#summernote').summernote({
           height: 1000,                 // 에디터 높이
           width: 1200,                  // 에디터 넓이

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/contents")
+@RequestMapping("user/contents")
 public class ListController {
 
     @Autowired

@@ -146,7 +146,7 @@
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="257be86a981729866f2fa61c-|49" defer=""></script>
 <!-- Time line Html Ends -->
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-<script src="/js/footer/jquery-3.1.1.min.js"></script>
+<!-- <script src="/js/footer/jquery-3.1.1.min.js"></script> -->
 <script src="/js/footer/popper.min.js"></script>
 <script src="/js/footer/bootstrap.min.js"></script>
 <script src="/js/footer/select2.min.js"></script>
