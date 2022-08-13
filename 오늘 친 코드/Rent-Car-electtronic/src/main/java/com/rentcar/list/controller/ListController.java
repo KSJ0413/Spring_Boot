@@ -1,10 +1,9 @@
 package com.rentcar.list.controller;
 
-import com.google.gson.JsonObject;
 import com.rentcar.list.model.ListDTO;
 import com.rentcar.list.service.ListServiceImpl;
-import com.rentcar.notice.model.review.model.ReviewDTO;
-import com.rentcar.notice.model.review.service.ReviewServiceImpl;
+import com.rentcar.review.model.ReviewDTO;
+import com.rentcar.review.service.ReviewServiceImpl;
 import com.rentcar.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("user/contents")
+@RequestMapping("/user/contents")
 public class ListController {
 
     @Autowired
@@ -36,7 +35,7 @@ public class ListController {
 
         service.delete(listno);
 
-        return "redirect:/contents/list";
+        return "redirect:/user/contents/list";
 
     }
 
@@ -102,10 +101,10 @@ public class ListController {
         map.put("listno", listno);
 
         model.addAllAttributes(map);
-//        System.out.println("map="+map);
+        System.out.println("map="+map);
         List<ReviewDTO> list = rservice.list(map);
 
-//        System.out.println("list="+list);
+        System.out.println("list="+list);
         model.addAttribute("list", list);
 
 
@@ -127,7 +126,7 @@ public class ListController {
 
         System.out.println("dto=" + dto);
         if (service.create(dto) == 1) {
-            return "redirect:/contents/list";
+            return "redirect:/user/contents/list";
         } else {
             return "error";
         }
