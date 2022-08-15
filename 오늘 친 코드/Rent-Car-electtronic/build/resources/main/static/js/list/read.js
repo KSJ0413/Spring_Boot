@@ -3,8 +3,8 @@ $(function(){
 
 
 $("#btn_update").click(function(){ //글 수정
-
-	var url = "/contents/list/update";
+var listno =document.querySelector("#listno").value;
+	var url = "/user/contents/list/update";
            url += "?listno="+listno;
 //           url += "&col=${col}";
 //           url += "&word=${word}";
@@ -20,7 +20,7 @@ $("#btn_update").click(function(){ //글 수정
 
 $("#btn_delete").click(function(){ //글 삭제
 
-
+var listno =document.querySelector("#listno").value;
  var imgs = document.querySelectorAll('img');
         console.log(imgs);
         for(var i=0; i<imgs.length; i++){
@@ -32,7 +32,7 @@ $("#btn_delete").click(function(){ //글 삭제
         console.log(key);
         console.log(key.length);
         if(key.length>40){
-//if(key.lenght)
+
         $.ajax({
        	url : "/s3/resource",
         type : 'delete',
@@ -40,37 +40,29 @@ $("#btn_delete").click(function(){ //글 삭제
         key : key
         },
         success : function(data) {
-        console.log(listno);
-        $.ajax({
-        	url : "http://localhost:9090/contents/list/delete",
-        	type : 'post',
-        	data : {
-        		listno : listno
-        	},
-        	success : function(data) {
-        				location.href="/contents/list";
-             },
-        	error : function() {
-        		alert("error");
-        	}
-        })
-
-
 
         },
         error : function() {
         alert("error");
         }
-        });
-}
-
-
-}
-
-
-
-
-
+        });  //ajax
+} //if
+} //for
+  setTimeout(
+$.ajax({
+        	url : "/user/contents/list/delete",
+        	type : 'post',
+        	data : {
+        		listno : listno
+        	},
+        	success : function(data) {
+        				location.href="/user/contents/list";
+             },
+        	error : function() {
+        		alert("error");
+        	}
+        })
+,1000);
 
 });
 
@@ -79,8 +71,9 @@ $("#btn_delete").click(function(){ //글 삭제
 
 
 
-	$("#btn1").click(function(){ // 추천 up
 
+	$("#btn1").click(function(){ // 추천 up
+var listno =document.querySelector("#listno").value;
 	console.log(listno);
 
 
@@ -93,7 +86,8 @@ $("#btn_delete").click(function(){ //글 삭제
 
 
 $("#delete").click(function(){ // 리뷰 삭제
-
+var list_id =document.querySelector("#list_id").value;
+if(list_id )
 var rnum = document.querySelector("#rnum").value;
 
 
@@ -114,11 +108,21 @@ fetch(`/review/${rnum}`,{method: 'delete'})
 	$("#addreviewBtn").click(function(){// review create
 
 
+
+if(id === ""){
+alert("로그인 후 이용해주세요.");
+location.href='/user/login';
+}else{
+var id =document.querySelector("#id").value;
+var listno =document.querySelector("#listno").value;
 	 var content = document.querySelector("#review11").value;
            	console.log(content);
+           	  	console.log(id);
+           	  	  	console.log(listno);
   	var data = {
-		"content" : content,
-		"listno" : listno
+		content : content,
+		id:id,
+		listno : listno
 	}
 	console.log(data);
 
@@ -140,6 +144,9 @@ fetch(`/review/${rnum}`,{method: 'delete'})
 	        alert("에러입니다");
 	    }
 	});
+	}
 		});
+
+
 
 });
